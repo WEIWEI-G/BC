@@ -144,7 +144,6 @@ clinical_data <- clinical_data %>%
     pathogenic_variant_carrier = ifelse(Tumor_Sample_Barcode %in% carrier_patients, "Carrier", "Non-carrier")
   )
 
-# Display the first few rows of the simulated data
 cat("### Simulated Clinical Data (First 6 Rows):\n")
 print(head(clinical_data))
 
@@ -157,7 +156,6 @@ cat("\n### Pathogenic Variant Status vs. Molecular Subtype\n")
 contingency_table <- table(clinical_data$pathogenic_variant_carrier, clinical_data$molecular_subtype)
 print(contingency_table)
 
-# Use chi-square test. If any expected cell count is < 5, Fisher's test is preferred.
 chi_sq_result <- chisq.test(contingency_table)
 cat("\nChi-squared test result:\n")
 print(chi_sq_result)
